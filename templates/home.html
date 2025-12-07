@@ -3,53 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
     <title>Prat Careers</title>
     <style>
-        h1 {
-            font-size: 40px;
-            font-family:  Roboto ;
-            font-weight: bold;
-            color: rgb(50, 50, 50);
-            text-align: center;
-        }
         #banner {
-            display: block;
-            width: 100%;
             height: 360px;
+            width: 100%;
             object-fit: cover;
         }
-        h2 {
-            font-size: 32px;
-            font-family:  Roboto ;
-            font-weight: normal;
-            color: rgb(100, 100, 100);
-            text-align: center;
-        }   
-        .body_text {
-            font-size: 18px;
-            font-family:  Roboto ;
-            font-weight: normal;
-            color: rgb(80, 80, 80);
-            
-        }
-        #container {
-            width: 720px;
-            margin: 0 auto;
-        }
-        
     </style>
 </head>
 <body>
-    <div id="container"> 
-        <h1>Prat Careers</h1>
-        <img id="banner" src="static/banner.jpg" alt="Prat Careers Banner" height="320px">
-        <h2>About Prat</h2>
-        <p class="body_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut alias quibusdam eos accusantium aperiam mollitia doloribus quae. Ipsam eveniet dolores dolorem sit, sint veritatis voluptas, quam eaque placeat fugiat possimus. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi, deserunt molestias odio, corporis labore natus earum assumenda dignissimos ex facilis in dolores quo beatae exercitationem, ad ab sint? Id, natus! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto consequuntur quasi inventore quos repellendus eligendi dolorem eos odit quae deleniti? Consequatur praesentium perferendis ab reprehenderit, quis consequuntur? Nihil, animi minus!</p>
-        <h2>Open Positions</h2>
-        <p>TODO- Show the jobs here</p>
-        <div style="text-align: center;">
-            <button>Contact Us</button>
-            <p>copyright ©2025 Prat Careers</p>
+    <div class="container"> 
+        <h1 class="text-center mt-2 mb-4">
+            {{ company_name }}
+        </h1>
+        <img id="banner" class="img-fluid" src="static/banner.jpg" alt="Prat Careers Banner" >
+        <h2 class="text-center mt-2 mb-4">About Prat</h2>
+        <p class="lead" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut alias quibusdam eos accusantium aperiam mollitia doloribus quae. Ipsam eveniet dolores dolorem sit, sint veritatis voluptas, quam eaque placeat fugiat possimus. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi, deserunt molestias odio, corporis labore natus earum assumenda dignissimos ex facilis in dolores quo beatae exercitationem, ad ab sint? Id, natus! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto consequuntur quasi inventore quos repellendus eligendi dolorem eos odit quae deleniti? Consequatur praesentium perferendis ab reprehenderit, quis consequuntur? Nihil, animi minus!</p>
+        <h2 class="text-center mt-2 mb-4">Open Positions</h2>
+        <div>
+            {% for job in jobs %}
+                {% include 'jobitem.html' %}   
+            {% endfor %}   
+        </div>
+        <div class="text-center">
+            <button type="button" class="btn btn-primary btn-lg">Contact Us</button>
+            <p class="mt-4">copyright ©2025 Prat Careers</p>
         </div>
         
     </div>
