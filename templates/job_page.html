@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{job.title}}-Prat Careers</title>
+    {% include 'bootstrap.html' %}
+</head>
+<body>
+    {% include 'nav.html' %}
+    {% include 'banner.html' %} 
+    <div class="container"> 
+        <h1 class="text-center mt-2 mb-4">
+            {{ company_name }}
+        </h1>
+        <h2>TITLE: </h2>
+        <p>{{job.title}}</p>
+        <h3>LOCATION: </h3>
+        <p>{{job.location}}</p>
+        <h3>Saraly: </h3>
+        <p>{{job.salary}} {{job.currency}}</p>
+        <h4>Job Responsibilities: </h4>
+        <ul>
+        {% for line in job.responsibility.split(".") %}
+            <li>{{ line }}</li>
+        {% endfor %}
+        </ul>
+        <h4>Job Requirements: </h4>
+        <ol>
+        {% for line in job.requirements.split(".") %}
+            <li>{{ line }}</li>
+        {% endfor %}
+        </ol>
+    </div>
+    {% include 'footer.html' %}
+</body>
+</html>
